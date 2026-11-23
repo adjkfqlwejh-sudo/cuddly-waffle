@@ -1,0 +1,15 @@
+[Unit]
+Description=Telegram Weather Bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/weather_telegram_bot
+ExecStart=/opt/weather_telegram_bot/.venv/bin/python /opt/weather_telegram_bot/bot.py
+Restart=always
+RestartSec=5
+EnvironmentFile=/opt/weather_telegram_bot/.env
+
+[Install]
+WantedBy=multi-user.target
